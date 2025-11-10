@@ -1,4 +1,4 @@
-# Quadrado-Animado-GLUT
+# Quadrado Animado GLUT
 
 Este projeto é uma implementação em C++ de um protetor de tela (screensaver) simples, utilizando a biblioteca gráfica **GLUT (OpenGL Utility Toolkit)**. O objetivo é simular um quadrado que se move continuamente pela janela, reagindo a colisões com as bordas.
 
