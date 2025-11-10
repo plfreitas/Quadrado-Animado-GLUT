@@ -40,5 +40,5 @@ Para compilar e executar este projeto, você precisará ter o **GLUT** configura
     ```
 
 ---
-*Desenvolvido por [Seu Nome/Usuário do GitHub]*
+*Desenvolvido por plfreitas*
 *Este projeto é um excelente ponto de partida para entender os fundamentos da animação 2D e do uso do pipeline de eventos e callbacks da biblioteca GLUT.*
