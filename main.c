@@ -3,30 +3,30 @@
 #include <time.h>
 #include <math.h>
 
-// Configurações da janela
+// ConfiguraÃ§Å‘es da janela
 #define WINDOW_WIDTH 800
 #define WINDOW_HEIGHT 600
 #define WINDOW_TITLE "Quadrado Animado 2D"
 
 // Estrutura para o quadrado
 typedef struct {
-    float x, y;           // Posição central
-    float size;           // Tamanho (metade do lado)
-    float original_size;  // Tamanho original
-    float dx, dy;         // Direção do movimento
-    float r, g, b;        // Cor (RGB)
+    float x, y;           
+    float size;           
+    float original_size;  
+    float dx, dy;         
+    float r, g, b;        
 } Square;
 
 Square square;
 
-// Função para gerar cor aleatória entre 0.0 e 1.0
+// FunÃ§Äƒo para gerar cor aleatÃ³ria entre 0.0 e 1.0
 void randomColor() {
     square.r = (float)rand() / RAND_MAX;
     square.g = (float)rand() / RAND_MAX;
     square.b = (float)rand() / RAND_MAX;
 }
 
-// Função de inicialização
+// FunÃ§Äƒo de inicializaÃ§Äƒo
 void init() {
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f); // Fundo preto
     
@@ -38,12 +38,12 @@ void init() {
     square.dx = 3.0f;  // Velocidade em X
     square.dy = 2.0f;  // Velocidade em Y
     
-    // Cor inicial aleatória
+    // Cor inicial aleatÃ³ria
     srand((unsigned int)time(NULL));
     randomColor();
 }
 
-// Função para desenhar o quadrado
+// FunÃ§Äƒo para desenhar o quadrado
 void drawSquare() {
     glBegin(GL_QUADS);
     glColor3f(square.r, square.g, square.b);
@@ -54,7 +54,7 @@ void drawSquare() {
     glEnd();
 }
 
-// Função de display
+// FunÃ§Äƒo de display
 void display() {
     glClear(GL_COLOR_BUFFER_BIT);
     glLoadIdentity();
@@ -64,7 +64,7 @@ void display() {
     glutSwapBuffers();
 }
 
-// Função de redimensionamento
+// FunÃ§Äƒo de redimensionamento
 void reshape(int width, int height) {
     glViewport(0, 0, width, height);
     glMatrixMode(GL_PROJECTION);
@@ -73,35 +73,35 @@ void reshape(int width, int height) {
     glMatrixMode(GL_MODELVIEW);
 }
 
-// Função para atualizar a animação
+// FunÃ§Äƒo para atualizar a animaÃ§Äƒo
 void update(int value) {
-    // Atualiza posição
+    // Atualiza posiÃ§Äƒo
     square.x += square.dx;
     square.y += square.dy;
     
-    // Verifica colisão com bordas horizontais
+    // Verifica colisÄƒo com bordas horizontais
     if (square.x - square.size <= 0 || square.x + square.size >= WINDOW_WIDTH) {
-        square.dx = -square.dx; // Inverte direção X
+        square.dx = -square.dx; // Inverte direÃ§Äƒo X
         randomColor(); // Muda cor
         
-        // Aumenta tamanho (máximo 20% do original)
+        // Aumenta tamanho (mÃ¡ximo 20% do original)
         if (square.size < square.original_size * 1.2f) {
             square.size *= 1.01f;
         }
     }
     
-    // Verifica colisão com bordas verticais
+    // Verifica colisÄƒo com bordas verticais
     if (square.y - square.size <= 0 || square.y + square.size >= WINDOW_HEIGHT) {
-        square.dy = -square.dy; // Inverte direção Y
+        square.dy = -square.dy; // Inverte direÃ§Äƒo Y
         randomColor(); // Muda cor
         
-        // Aumenta tamanho (máximo 20% do original)
+        // Aumenta tamanho (mÃ¡ximo 20% do original)
         if (square.size < square.original_size * 1.2f) {
             square.size *= 1.01f;
         }
     }
     
-    // Garante que o quadrado não saia da tela
+    // Garante que o quadrado nÄƒo saia da tela
     if (square.x - square.size < 0) square.x = square.size;
     if (square.x + square.size > WINDOW_WIDTH) square.x = WINDOW_WIDTH - square.size;
     if (square.y - square.size < 0) square.y = square.size;
@@ -111,7 +111,7 @@ void update(int value) {
     glutTimerFunc(16, update, 0);
 }
 
-// Função principal
+// FunÃ§Äƒo principal
 int main(int argc, char** argv) {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
@@ -129,3 +129,4 @@ int main(int argc, char** argv) {
     
     return 0;
 }
+
