@@ -28,7 +28,7 @@ void randomColor() {
 
 // Funçăo de inicializaçăo
 void init() {
-    glClearColor(0.0f, 0.0f, 0.0f, 1.0f); // Fundo preto
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f); 
     
     // Inicializa o quadrado
     square.original_size = 30.0f;
@@ -129,4 +129,5 @@ int main(int argc, char** argv) {
     
     return 0;
 }
+
 
